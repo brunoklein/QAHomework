@@ -1,0 +1,52 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+
+    <IsPackable>false</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="nunit" Version="3.11.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.11.0" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="15.9.0" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+    <PackageReference Include="Selenium.Support" Version="3.141.0" />
+    <PackageReference Include="Selenium.WebDriver.ChromeDriver" Version="77.0.3865.4000" />
+    <PackageReference Include="SpecFlow" Version="3.0.225" />
+    <PackageReference Include="SpecRun.Runner" Version="3.0.391" />
+    <PackageReference Include="SpecFlow.NUnit" Version="3.0.225" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="PageObjects\" />
+    <Folder Include="Utils\" />
+    <Folder Include="Steps\" />
+    <Folder Include="Features\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="Features\HomePage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>HomePage.feature.cs</LastGenOutput>
+    </None>
+    <None Update="Features\FormPage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>FormPage.feature.cs</LastGenOutput>
+    </None>
+    <None Update="Features\ErrorPage.feature">
+      <Generator>SpecFlowSingleFileGenerator</Generator>
+      <LastGenOutput>ErrorPage.feature.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Features\HomePage.feature.cs">
+      <DependentUpon>HomePage.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\FormPage.feature.cs">
+      <DependentUpon>FormPage.feature</DependentUpon>
+    </Compile>
+    <Compile Update="Features\ErrorPage.feature.cs">
+      <DependentUpon>ErrorPage.feature</DependentUpon>
+    </Compile>
+  </ItemGroup>
+</Project>
